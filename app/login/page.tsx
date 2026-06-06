@@ -76,8 +76,8 @@ function WelcomeScreen({ onEnter }: { onEnter: () => void }) {
 export default function LoginPage() {
   const router = useRouter();
 
-  const [email, setEmail] = useState('admin@factoryos.com');
-  const [password, setPassword] = useState('factory2024');
+  const [email, setEmail] = useState('admin123@factory.com');
+  const [password, setPassword] = useState('admin123');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
