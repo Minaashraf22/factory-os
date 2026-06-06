@@ -1,3 +1,14 @@
+import { useAuth } from '@/components/auth-guard';
+
+export default function DashboardPage() {
+  const { loading, profile } = useAuth();
+
+  if (loading) return <div>Loading...</div>;
+
+  if (!profile) return null; // أو redirect
+
+  return (
+    <div>
 'use client';
 
 import { useEffect } from 'react';
@@ -43,5 +54,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <AuthProvider>
       <DashboardContent>{children}</DashboardContent>
     </AuthProvider>
+  );
+}
+         </div>
   );
 }
