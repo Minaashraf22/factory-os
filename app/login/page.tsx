@@ -65,9 +65,7 @@ function WelcomeScreen({ onEnter }: { onEnter: () => void }) {
           Enter System
         </button>
 
-        <div className="mt-4 text-[10px] text-white/30">
-          v1 passion by Mena Ashraf
-        </div>
+       
       </div>
     </div>
   );
