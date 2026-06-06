@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   FACTORYOS THEME SYSTEM
+========================= */
+
+@layer base {
+  :root {
+    /* LIGHT MODE (default) */
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 0 0% 94%;
+    --muted-foreground: 215 20% 45%;
+
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 24 95% 53%;
+
+    --radius: 0.5rem;
+
+    --chart-1: 24 95% 53%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 210 80% 55%;
+    --chart-4: 43 74% 56%;
+    --chart-5: 0 72% 51%;
+  }
+
+  .dark {
+    /* DARK MODE (FactoryOS style) */
+    --background: 222 47% 4%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 47% 7%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 47% 6%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 222 47% 12%;
+    --secondary-foreground: 210 40% 90%;
+
+    --muted: 222 47% 10%;
+    --muted-foreground: 215 20% 50%;
+
+    --accent: 24 95% 53%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 222 47% 14%;
+    --input: 222 47% 12%;
+    --ring: 24 95% 53%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+/* =========================
+   FACTORY UTILITIES (UNCHANGED)
+========================= */
+
+@layer utilities {
+  .factory-grid {
+    background-image: linear-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+  }
+
+  .glow-orange {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.15);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  .kanban-card {
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .kanban-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .kanban-card.dragging {
+    transform: rotate(1deg) scale(1.02);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+  }
+
+  .stat-card {
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(222 47% 9%) 100%);
+  }
+
+  .sidebar-item-active {
+    background: linear-gradient(90deg, rgba(249, 115, 22, 0.15) 0%, transparent 100%);
+    border-left: 2px solid hsl(var(--primary));
+  }
+
+  .chat-bubble-sent {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(249, 115, 22, 0.1));
+    border: 1px solid rgba(249, 115, 22, 0.2);
+  }
+
+  .chat-bubble-received {
+    background: hsl(var(--secondary));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .progress-bar {
+    background: linear-gradient(90deg, hsl(var(--primary)), hsl(24 95% 65%));
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
